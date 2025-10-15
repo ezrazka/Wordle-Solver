@@ -315,7 +315,7 @@ class Game:
     
     def _draw_word_suggestions(self):
         title_surface = self._text_font.render("Word Suggestions", True, WHITE)
-        title_rect = title_surface.get_rect(topright=(WIDTH - 65, 35))
+        title_rect = title_surface.get_rect(topright=(WIDTH - 65, 70))
         self._screen.blit(title_surface, title_rect)
         
         with self._word_suggestions_lock:
@@ -329,22 +329,22 @@ class Game:
         
         if len(word_suggestions) == 0:
             loading_text_surface = self._text_font.render("Loading...", True, WHITE)
-            loading_text_rect = loading_text_surface.get_rect(topright=(WIDTH - 130, 180))
+            loading_text_rect = loading_text_surface.get_rect(topright=(WIDTH - 130, 215))
             self._screen.blit(loading_text_surface, loading_text_rect)
             return
         
         for i, (word, entropy, is_valid_word) in enumerate(word_suggestions):
             text_color = BLUE if is_valid_word else WHITE
             word_suggestion_surface = self._text_font.render(word, True, text_color)
-            word_suggestion_rect = word_suggestion_surface.get_rect(topleft=(WIDTH - 355, 90 + i * 40))
+            word_suggestion_rect = word_suggestion_surface.get_rect(topleft=(WIDTH - 355, 125 + i * 40))
             entropy_suggestion_surface = self._text_font.render(f"({entropy:.2f})", True, text_color)
-            entropy_suggestion_rect = entropy_suggestion_surface.get_rect(topright=(WIDTH - 65, 90 + i * 40))
+            entropy_suggestion_rect = entropy_suggestion_surface.get_rect(topright=(WIDTH - 65, 125 + i * 40))
             self._screen.blit(word_suggestion_surface, word_suggestion_rect)
             self._screen.blit(entropy_suggestion_surface, entropy_suggestion_rect)
     
     def _draw_progress_bar(self):
         width, height = 300, 28
-        left, top = WIDTH - width - 60, HEIGHT - height - 120
+        left, top = WIDTH - width - 60, HEIGHT - height - 85
         border_width = 3
     
         pygame.draw.rect(self._screen, BORDER_GRAY, (left, top, width, height))
