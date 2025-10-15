@@ -344,19 +344,19 @@ class Game:
     
     def _draw_progress_bar(self):
         width, height = 300, 28
-        top_left, top_right = WIDTH - width - 60, HEIGHT - height - 120
+        left, top = WIDTH - width - 60, HEIGHT - height - 120
         border_width = 3
     
-        pygame.draw.rect(self._screen, BORDER_GRAY, (top_left, top_right, width, height))
-        pygame.draw.rect(self._screen, WHITE, (top_left, top_right, width, height), border_width)
+        pygame.draw.rect(self._screen, BORDER_GRAY, (left, top, width, height))
+        pygame.draw.rect(self._screen, WHITE, (left, top, width, height), border_width)
         
         with self._suggestions_progress_lock:
             progress = self._suggestions_progress
         fill_width = int(width * progress)
 
         pygame.draw.rect(self._screen, BLUE, (
-            top_left + border_width,
-            top_right + border_width,
+            left + border_width,
+            top + border_width,
             fill_width - 2 * border_width,
             height - 2 * border_width
         ))
