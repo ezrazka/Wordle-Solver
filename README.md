@@ -26,9 +26,7 @@ Get top suggestions based on highest expected information gain using [Shannon en
 
 In this context, it quantifies how much information a particular word is expected to reveal about the hidden word.
 It is computed from the distribution of all possible feedback patterns the guess could produce (green/yellow/gray combinations), assuming all remaining candidate answers are equiprobable.
-\[
-H(g) = -\sum_{r} p(r) \log_2 p(r)
-\]
+$$H(g) = -\sum_{r} p(r) \log_2 p(r)$$
 where:
 * $H(g)$: the expected information gain (in bits)
 * $r$: each $3^5 = 243$ possible feedback pattern
@@ -46,9 +44,7 @@ The application allows the program to run on multiple CPU cores at a time, allow
 The bottleneck in calculating suggestions is having to calculate the entropy for each word from a potentially large list of candidate answers. To speed up the calculation of word entropies, multiprocessing is utilized to take advantage of remaining computational power. Since each entropy calculation for a given word is an independent subproblem, the task can be parallelized. The process is divided across the number of CPU cores available on the client running the program.
 
 The workload is batched for real-time feedback, allowing the player to keep track of the best guesses calculated so far. The batch size is calculated relative to the number of remaining candidate answers, through this formula:
-\[
-    B = \kappa \cdot \left\lceil \frac{\left| W \right|}{\left| A \right|} \right\rceil
-\]
+$$B = \kappa \cdot \left\lceil \frac{\left| W \right|}{\left| A \right|} \right\rceil$$
 where:
 * $B$: batch size
 * $\kappa$: hand-tuned batching constant
