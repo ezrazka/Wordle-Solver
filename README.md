@@ -8,7 +8,7 @@ A **Pygame-based Wordle** clone with **information theory-based suggestions** fo
 Play the classic New York Times Wordle web game offline through a Pygame interface, along with a list of top suggestions for what to guess.
 ![Demo Screenshot](assets/images/demo-screenshot.png)
 
-The goal of Wordle is to guess the hidden five-letter word within six guesses. In this clone the answer is chosen from a bank of 14855 words as seen from [this github repository](https://gist.github.com/dracos/dd0668f281e685bad51479e5acaadb93). The list consists of case-insensitive five-letter words made up of English letters. Similarly, the list of five-letter valid guesses is taken from the same dictionary.
+The goal of Wordle is to guess the hidden five-letter word within six guesses. In this clone the answer is chosen from a bank of 14855 words as seen from [this GitHub gist](https://gist.github.com/dracos/dd0668f281e685bad51479e5acaadb93). The list consists of case-insensitive five-letter words made up of English letters. Similarly, the list of five-letter valid guesses is taken from the same dictionary.
 
 In Wordle, you receive feedback for each letter in every guess you make.
 Green - The letter is in the correct position of the hidden word
