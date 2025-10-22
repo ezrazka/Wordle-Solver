@@ -138,7 +138,7 @@ class Game:
 
         row = guesses_made
         col = len(self._guess_letters) - 1
-        self._grid_rect_colors[row][col] =ON_GRAY 
+        self._grid_rect_colors[row][col] = ON_GRAY 
 
     def _delete_letter(self):
         with self._game_state_lock:
@@ -192,7 +192,7 @@ class Game:
             elif color_grid[row][col] == "y":
                 self._grid_rect_colors[row][col] = YELLOW
             else:
-                self._grid_rect_colors[row][col] =ON_GRAY 
+                self._grid_rect_colors[row][col] = ON_GRAY 
     
     def _suggestions_worker_loop(self):
         while not self._is_game_ended.is_set():
